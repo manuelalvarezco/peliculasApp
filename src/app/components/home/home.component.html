@@ -1,12 +1,10 @@
 <app-navbar></app-navbar>
+<div class="container mt-2">
 
-<div class="container mt-4">
-    <div class="row">
-        <div *ngFor="let pelicula of peliculas" class="card bg-dark text-white m-2" style="width: 21rem;">
-            <img src="http://image.tmdb.org/t/p/w300{{pelicula.poster_path}}" class="card-img" alt="">
-            <div class="card-img-overlay">
-                <h5 class="card-title">{{ pelicula.original_title }}</h5>
-            </div>
-        </div>
-    </div>
+    <app-galeria titulo="Películas en cartelera" [peliculas]="peliculas|slice:0:6"></app-galeria>
+
+    <app-galeria titulo="Películas populares" [peliculas]="populares|slice:0:6"></app-galeria>
+
+    <app-galeria titulo="Películas populares entre niños" [peliculas]="popularesNinos|slice:0:6"></app-galeria>
+
 </div>

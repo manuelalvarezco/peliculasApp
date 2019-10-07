@@ -1,1 +1,32 @@
 <app-navbar></app-navbar>
+<div class="container">
+
+    <div class="example-container">
+        <mat-form-field appearance="outline">
+            <input [(ngModel)]="buscar" name="buscar" (keyup.enter)="buscarPelicula()" matInput placeholder="Buscar Película">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let pelicula of peliculas">
+            <mat-card class="example-card mt-2">
+                <img mat-card-image [src]="pelicula|noImage" [alt]="pelicula.original_title">
+
+                <mat-card-title>{{pelicula.original_title}}</mat-card-title>
+
+                <mat-card-content>
+                    <p>
+                        {{pelicula.overview | slice:0:200}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button class="btn-block" mat-raised-button color="primary">VER MÁS</button>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+    </div>
+
+
+</div>

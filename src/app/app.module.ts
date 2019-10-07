@@ -13,13 +13,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NoImagePipe } from './pipes/no-image.pipe';
+import { GaleriaComponent } from './components/home/galeria.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BuscadorComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoImagePipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

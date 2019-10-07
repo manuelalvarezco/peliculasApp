@@ -11,11 +11,12 @@ export class PeliculasService {
 
   private imgpath = "http://image.tmdb.org/t/p/w300";
 
-  private apikey:string = "";
-  private token:string = "";
+  private apikey:string = "a141476b1338ea5c7ec9b6ab6a812869";
+  private token:string = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTQxNDc2YjEzMzhlYTVjN2VjOWI2YWI2YTgxMjg2OSIsInN1YiI6IjVkOTYwMWUyMmM2YjdiMDAyMzkzODc0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ukgdF2lpJSRunofv-jRTqE427hkc3UrOfAINRV4-jCo";
   private urlmovie:string = "https://api.themoviedb.org/3";
 
 
+  peliculas:any[] = [];
 
   constructor( private http:HttpClient, private jsonp:HttpClientJsonpModule) { }
 
@@ -36,7 +37,7 @@ export class PeliculasService {
 
     return this.http.get( url )
     .pipe(
-      map( res => res)
+      map( (res:any) => res)
     );
   }
 
@@ -45,7 +46,34 @@ export class PeliculasService {
 
     return this.http.get( url )
     .pipe(
-      map( res => res)
+      map( (res:any) => res)
     );
   }
+
+  getPupularesNinos(){
+    let url = `${this.urlmovie}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}`;
+
+    return this.http.get( url )
+    .pipe(
+      map( (res:any) => res)
+    );
+  }
+
+  getPeliculas(texto:string){
+    let url = `${this.urlmovie}/search/movie?query=${texto}&sort_by=popularity&api_key=${this.apikey}`;
+
+    
+
+    return this.http.get( url )
+    .pipe(
+      map( (res:any) => {
+        this.peliculas = res;
+        return res
+      })
+    );
+  }
+
+  
+
+
 }
