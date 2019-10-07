@@ -9,11 +9,11 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class PeliculasService {
 
-  private imgpath = "http://image.tmdb.org/t/p/w300";
+  private imgpath = "";
 
-  private apikey:string = "a141476b1338ea5c7ec9b6ab6a812869";
-  private token:string = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTQxNDc2YjEzMzhlYTVjN2VjOWI2YWI2YTgxMjg2OSIsInN1YiI6IjVkOTYwMWUyMmM2YjdiMDAyMzkzODc0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ukgdF2lpJSRunofv-jRTqE427hkc3UrOfAINRV4-jCo";
-  private urlmovie:string = "https://api.themoviedb.org/3";
+  private apikey:string = "";
+  private token:string = "";
+  private urlmovie:string = "";
 
 
   peliculas:any[] = [];
